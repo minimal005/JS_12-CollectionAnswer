@@ -69,3 +69,8 @@ body{
    font-size: 18px;
    line-height: 1.5;
 }
+.rezult__block{
+   font-size: 20px;
+   margin-top: 5px;
+   font-weight: 600;
+}

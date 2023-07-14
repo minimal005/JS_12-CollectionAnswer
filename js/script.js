@@ -16,6 +16,7 @@ const l_2 = document.querySelector('.l-2')
 const alert = document.querySelector('.alert')
 const get_btn = document.querySelector('.btn__send')
 const rezBlock = document.querySelector('.rezult__block')
+let rezultAnswer = []
 
 let check = [document.querySelector('#question-1'), document.querySelector('#question-2')]
 
@@ -25,19 +26,16 @@ document.querySelector('.btn__startTest').addEventListener('click', () => {
 })
 
 function showAnswer(arr){
-   console.log(arr);
    activeNumber.textContent = arr[0]
    answer.textContent = arr[1]
    l_1.innerText = arr[2]
    l_2.innerText = arr[3]
 }
 
-
 function hide (){
    get_btn.classList.remove('hidden')
    alert.style.minHeight = 200 + 'px'
    document.querySelector('.form__wrapper').classList.add('hidden')
-   
 }
 
 get_btn.addEventListener('click', () => {
@@ -52,26 +50,29 @@ get_btn.addEventListener('click', () => {
 }) 
 
 function showrezult() {
-   console.log(rezBlock);
    rezBlock.classList.remove('hidden')
    rezBlock.style.textAlign = 'center'
-   rezBlock.textContent = getRezult()
-}
+   rezBlock.innerHTML = finishResult()
+   }
 
 let k = 1
-for(let elem of check){
-   elem.addEventListener('click', () => {
-      if (elem.checked) {
+for(let i = 0; i < check.length; i++){
+   check[i].addEventListener('click', () => {
+      if (check[i].checked) {
+         rezultAnswer.push(i)
          if (k == 10) hide()
          else showAnswer(answerCollection[k++])}
       })
 }
 
-// function getRezult() {
-// for()
+function finishResult() {
+   let newArr = [1, 1, 0, 0, 1, 1, 1, 0, 1, 1]
+   let out = 0
+   for (let i = 0; i < newArr.length; i++){
+      if (newArr[i] == rezultAnswer[i]) out += 1
+   }
 
-//    answerCollection
-
-
-//    return
-// }
+   if (out < 4) return `Кількість набраних балів: ${out}<br>Ви дотримуєтеся традиційних поглядів на вирішення проблемних ситуацій.`
+   else if (out >= 4 && out < 6) return `Кількість набраних балів: ${out}<br>Ви досить креативні за своєю природою, але не завжди вважаєте за потрібне користуватися цими здібностями.`
+   else return `Кількість набраних балів: ${out}<br>Ви дуже творча людина. Ви вмієте бачити можливості в складних ситуаціях і готові до експериментів.`
+}
