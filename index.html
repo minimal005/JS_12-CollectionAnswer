@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+   <main>
+      <button class="btn__startTest">Start test</button>
+   
+   <div class="alert hidden">
+      <div class="alert__form">
+         <div class="form__wrapper">
+            <div class="number__answer">Запитання <span id="activeNumber">1</span></div>
+            <div class="answer">Виявивши, що улюблені джинси розірвалися, ви:</div>
+            
+               <div class="wrapper__question">
+                  <input type="radio" name="question" id="question-1">
+                  <label class="l-1 question" for="question-1">викидаєте їх</label>
+               </div>
+           
+               <div class="wrapper__question">
+                  <input type="radio" name="question" id="question-2">
+                  <label class="l-2 question" for="question-2"> робите кілька художніх розрізів і продовжуєте носити</label>
+               </div>
+         </div>
+         <div class="rezult__block hidden"></div>
+      </div>
+      
+      <button type="submit" class="btn__send hidden">Get rezult</button>
+   </div>
+</main>
+
+   <script src="./js/script.js"></script>
+</body>
+
+</html>
