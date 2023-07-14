@@ -16,7 +16,7 @@ const l_2 = document.querySelector('.l-2')
 const alert = document.querySelector('.alert')
 const get_btn = document.querySelector('.btn__send')
 const rezBlock = document.querySelector('.rezult__block')
-let rezultAnswer = []
+let rezultAnswer = [] // сюди записуватимемо відповіді usera
 
 let check = [document.querySelector('#question-1'), document.querySelector('#question-2')]
 
@@ -59,17 +59,17 @@ let k = 1
 for(let i = 0; i < check.length; i++){
    check[i].addEventListener('click', () => {
       if (check[i].checked) {
-         rezultAnswer.push(i)
+         rezultAnswer.push(i) 
          if (k == 10) hide()
          else showAnswer(answerCollection[k++])}
       })
 }
 
 function finishResult() {
-   let newArr = [1, 1, 0, 0, 1, 1, 1, 0, 1, 1]
+   let newArr = [1, 1, 0, 0, 1, 1, 1, 0, 1, 1] //масив результатів, за які получаєш по 1 балу
    let out = 0
    for (let i = 0; i < newArr.length; i++){
-      if (newArr[i] == rezultAnswer[i]) out += 1
+      if (newArr[i] == rezultAnswer[i]) out += 1 //порівнюємо цей масив з відповідями usera і якщо результати сповпадають, то сумуємо їх
    }
 
    if (out < 4) return `Кількість набраних балів: ${out}<br>Ви дотримуєтеся традиційних поглядів на вирішення проблемних ситуацій.`
