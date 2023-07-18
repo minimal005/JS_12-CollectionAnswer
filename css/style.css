@@ -61,7 +61,7 @@ body{
    display: block;
    font-size: 20px;
 }
-.btn__send {
+.btn__send, .btn__next {
    position: absolute;
    right: 20px;
    top: 15px;

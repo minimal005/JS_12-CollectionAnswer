@@ -17,7 +17,7 @@ const alert = document.querySelector('.alert')
 const get_btn = document.querySelector('.btn__send')
 const rezBlock = document.querySelector('.rezult__block')
 let rezultAnswer = [] // сюди записуватимемо відповіді usera
-
+let btn__next = document.querySelector('.btn__next')
 let check = [document.querySelector('#question-1'), document.querySelector('#question-2')]
 
 document.querySelector('.btn__startTest').addEventListener('click', () => {
@@ -35,6 +35,7 @@ function showAnswer(arr){
 }
 
 function hide (){
+   btn__next.classList.add('hidden')
    get_btn.classList.remove('hidden')
    alert.style.minHeight = 200 + 'px'
    document.querySelector('.form__wrapper').classList.add('hidden')
@@ -59,7 +60,7 @@ function showrezult() {
 
 let k = 1
 for(let i = 0; i < check.length; i++){
-   check[i].addEventListener('click', () => {
+   btn__next.addEventListener('click', () => {
       if (check[i].checked) {
          rezultAnswer.push(i) 
          if (k == 10) hide()
